@@ -18,6 +18,10 @@
 		415D61B421C3A8F40076DE0B /* libglog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 415D61B321C3A8F40076DE0B /* libglog.a */; };
 		415D61B621C3A8F40076DE0B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 415D61B521C3A8F40076DE0B /* libReact.a */; };
 		415D61B821C3A8F40076DE0B /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 415D61B721C3A8F40076DE0B /* libyoga.a */; };
+		41B7742321C4CE4C00F51E92 /* RNBridgeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7742221C4CE4C00F51E92 /* RNBridgeManager.m */; };
+		41B7742621C4D38100F51E92 /* RNInterractModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7742521C4D38100F51E92 /* RNInterractModule.m */; };
+		41B7742B21C4DA5F00F51E92 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7742A21C4DA5F00F51E92 /* Util.m */; };
+		41B7742E21C4DDB300F51E92 /* RNEmitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7742D21C4DDB300F51E92 /* RNEmitterViewController.m */; };
 		D9558A4068111B75C22EE2E4 /* libPods-RNTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74727A51E7B37494D3F9A9DC /* libPods-RNTest.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,14 @@
 		415D61B321C3A8F40076DE0B /* libglog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libglog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		415D61B521C3A8F40076DE0B /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		415D61B721C3A8F40076DE0B /* libyoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libyoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		41B7742121C4CE4C00F51E92 /* RNBridgeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNBridgeManager.h; sourceTree = "<group>"; };
+		41B7742221C4CE4C00F51E92 /* RNBridgeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNBridgeManager.m; sourceTree = "<group>"; };
+		41B7742421C4D38100F51E92 /* RNInterractModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNInterractModule.h; sourceTree = "<group>"; };
+		41B7742521C4D38100F51E92 /* RNInterractModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNInterractModule.m; sourceTree = "<group>"; };
+		41B7742921C4DA5F00F51E92 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		41B7742A21C4DA5F00F51E92 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		41B7742C21C4DDB300F51E92 /* RNEmitterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNEmitterViewController.h; sourceTree = "<group>"; };
+		41B7742D21C4DDB300F51E92 /* RNEmitterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNEmitterViewController.m; sourceTree = "<group>"; };
 		74727A51E7B37494D3F9A9DC /* libPods-RNTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCA9ED83B45698B05014C47 /* Pods-RNTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RNTest/Pods-RNTest.debug.xcconfig"; sourceTree = "<group>"; };
 		D85142781F0D1C18C3D56B5B /* Pods-RNTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RNTest/Pods-RNTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +92,8 @@
 		415D619821C3A4F60076DE0B /* RNTest */ = {
 			isa = PBXGroup;
 			children = (
+				41B7742821C4DA2B00F51E92 /* Utils */,
+				41B7742021C4CE1B00F51E92 /* ReactNative */,
 				415D619921C3A4F60076DE0B /* AppDelegate.h */,
 				415D619A21C3A4F60076DE0B /* AppDelegate.m */,
 				415D619C21C3A4F60076DE0B /* ViewController.h */,
@@ -89,8 +103,30 @@
 				415D61A421C3A5000076DE0B /* LaunchScreen.storyboard */,
 				415D61A721C3A5000076DE0B /* Info.plist */,
 				415D61A821C3A5000076DE0B /* main.m */,
+				41B7742C21C4DDB300F51E92 /* RNEmitterViewController.h */,
+				41B7742D21C4DDB300F51E92 /* RNEmitterViewController.m */,
 			);
 			path = RNTest;
+			sourceTree = "<group>";
+		};
+		41B7742021C4CE1B00F51E92 /* ReactNative */ = {
+			isa = PBXGroup;
+			children = (
+				41B7742121C4CE4C00F51E92 /* RNBridgeManager.h */,
+				41B7742221C4CE4C00F51E92 /* RNBridgeManager.m */,
+				41B7742421C4D38100F51E92 /* RNInterractModule.h */,
+				41B7742521C4D38100F51E92 /* RNInterractModule.m */,
+			);
+			path = ReactNative;
+			sourceTree = "<group>";
+		};
+		41B7742821C4DA2B00F51E92 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				41B7742921C4DA5F00F51E92 /* Util.h */,
+				41B7742A21C4DA5F00F51E92 /* Util.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		ABC3F28925F466A38C591078 /* Pods */ = {
@@ -226,9 +262,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B7742321C4CE4C00F51E92 /* RNBridgeManager.m in Sources */,
 				415D619E21C3A4F60076DE0B /* ViewController.m in Sources */,
 				415D61A921C3A5000076DE0B /* main.m in Sources */,
 				415D619B21C3A4F60076DE0B /* AppDelegate.m in Sources */,
+				41B7742E21C4DDB300F51E92 /* RNEmitterViewController.m in Sources */,
+				41B7742621C4D38100F51E92 /* RNInterractModule.m in Sources */,
+				41B7742B21C4DA5F00F51E92 /* Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

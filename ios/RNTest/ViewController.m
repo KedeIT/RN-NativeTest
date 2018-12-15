@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import <React/RCTRootView.h>
 #import <React/RCTBundleURLProvider.h>
-
+#import "RNBridgeManager.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *rnButton;
@@ -37,8 +37,10 @@
 }
 
 - (IBAction)goToRNViewController:(id)sender {
-    NSURL *jsBundlePath = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsBundlePath moduleName:@"RNTest" initialProperties:nil launchOptions:nil];
+//    NSURL *jsBundlePath = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+//    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsBundlePath moduleName:@"RNTest" initialProperties:nil launchOptions:nil];
+    
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:[RNBridgeManager sharedManager] moduleName:@"RNTest" initialProperties:nil];
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view = rootView;
     [self.navigationController pushViewController:vc animated:YES];

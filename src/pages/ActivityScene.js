@@ -11,11 +11,13 @@ import {
 	Button
 } from 'react-native';
 
+import {showInfo,popToNative,pushNative,RNEmitter} from "../utils";
+
 export default class ActivityScene extends Component {
 	static navigationOptions = {
 		title:'ReactNative',
 		headerLeft:(
-			<TouchableOpacity onPress={() => alert('返回')}>
+			<TouchableOpacity onPress={() => popToNative()}>
 				<Image
 					source={require('../../resource/nav_back_gray.png')}
 					style={{width: 44, height: 44, marginLeft: 15}}
@@ -26,7 +28,19 @@ export default class ActivityScene extends Component {
 
 	render() {
 		return (
-			<View style={{flex: 1,backgroundColor:'green'}}>
+			<View style={{flex: 1,backgroundColor:'white'}}>
+				<Button
+					title='Native提示'
+					onPress={() => showInfo('我是原生端的提示！')}
+				/>
+				<Button
+					title='RN回到Native'
+					onPress={() => popToNative()}
+				/>
+				<Button
+					title='RN Push到Native'
+					onPress={() => pushNative(RNEmitter)}
+				/>
 			</View>
 		);
 	}
