@@ -1,5 +1,6 @@
 package com.example.qiu.rntest.reactnative;
 
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -15,6 +16,7 @@ import javax.annotation.Nullable;
 public class RNInterractModule extends ReactContextBaseJavaModule {
 
     private ReactContext mReactContext;
+    private static final String RNEmitter = "RNEmitter";
 
     public RNInterractModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -31,7 +33,7 @@ public class RNInterractModule extends ReactContextBaseJavaModule {
     @Override
     public Map<String, Object> getConstants() {
         final Map<String,Object> constants = new HashMap<>();
-        constants.put("RNEmitter","RNEmitter");
+        constants.put(RNEmitter,RNEmitter);
         return constants;
     }
 
@@ -43,12 +45,23 @@ public class RNInterractModule extends ReactContextBaseJavaModule {
     //RN回到原生页面
     @ReactMethod
     public void popToNative(){
-        Toast.makeText(getReactApplicationContext(),"RN回到原生页面",Toast.LENGTH_SHORT).show();
+        getCurrentActivity().finish();
     }
     //RN页面push Native页面
     @ReactMethod
     public void pushNative(String activityName){
-        Toast.makeText(getReactApplicationContext(),activityName,Toast.LENGTH_SHORT).show();
-    }
 
+        if (activityName.equals(RNEmitter)){
+            activityName = "com.example.qiu.rntest.reactnative.RNEmitterActivity";
+        }
+
+        Class clazz = null;
+        try {
+            clazz = Class.forName(activityName);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Intent intent = new Intent(this.mReactContext,clazz).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.mReactContext.startActivity(intent);
+    }
 }
