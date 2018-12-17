@@ -39,8 +39,6 @@ RCT_EXPORT_METHOD(pushNative:(NSString *) vcName){
     });
 }
 
-
-
 //导出常量
 
 //注意这个常量仅仅在初始化的时候导出了一次，所以即使你在运行期间改变constantToExport返回的值，也不会影响到 JavaScript 环境下所得到的结果。
@@ -54,4 +52,45 @@ RCT_EXPORT_METHOD(pushNative:(NSString *) vcName){
 + (BOOL)requiresMainQueueSetup{
     return true;
 }
+
+
+//回调函数
+//TODO（RN文档显示，目前iOS端的回调还处于实验阶段）
+RCT_EXPORT_METHOD(patCake:(NSString *)flour successBlock:(RCTResponseSenderBlock)successBlock errorBlock:(RCTResponseErrorBlock)errorBlock){
+    __weak __typeof(self)weakSelf = self;
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        NSString *cake = [weakSelf patCake:flour];
+        //模拟成功、失败的block判断
+        if([flour isKindOfClass:[NSString class]]){
+            successBlock(@[@[cake]]);
+        }else{
+            NSError *error = [NSError errorWithDomain:@"com.RNTest" code:-1 userInfo:@{@"message":@"类型不匹配"}];
+            errorBlock(error);
+        }
+    });
+}
+
+//使用RN端传递的参数字符串：""，调用Native端的做面包方法，加工成面包，再回传给RN
+- (NSString *)patCake:(NSString *)flour{
+    NSString * cake = [NSString stringWithFormat:@"使用%@，做好了：🎂🍞🍞🍰🍰🍰",flour];
+    return cake;
+}
+
+//Promise
+RCT_EXPORT_METHOD(callNameTointroduction:(NSString *)name resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock) reject){
+    __weak __typeof(self)weakSelf = self;
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if ([name isKindOfClass:NSString.class]) {
+            resolve([weakSelf introduction:name]);
+        }else{
+            NSError *error = [NSError errorWithDomain:@"com.RNTest" code:-1 userInfo:@{@"message":@"类型不匹配"}];
+            reject(@"class_error",@"Needs NSString Class",error);
+        }
+    });
+}
+
+- (NSString *)introduction:(NSString *)name{
+    return [NSString stringWithFormat:@"我的名字叫%@，今年18岁，喜欢运动、听歌...",name];
+}
+
 @end

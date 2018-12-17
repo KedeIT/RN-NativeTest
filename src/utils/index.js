@@ -6,7 +6,7 @@ import { NativeModules } from 'react-native';
 
 
 //导出Native端的方法
-export const { showInfo,popToNative,pushNative } = NativeModules.RNInterractModule;
+export const { showInfo,popToNative,pushNative,patCake,callNameTointroduction } = NativeModules.RNInterractModule;
 
 
 //导出Native端的常量

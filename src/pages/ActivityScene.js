@@ -11,7 +11,7 @@ import {
 	Button
 } from 'react-native';
 
-import {showInfo,popToNative,pushNative,RNEmitter} from "../utils";
+import {showInfo,popToNative,pushNative,patCake,callNameTointroduction,RNEmitter} from "../utils";
 
 export default class ActivityScene extends Component {
 	static navigationOptions = {
@@ -40,6 +40,25 @@ export default class ActivityScene extends Component {
 				<Button
 					title='RN Push到Native'
 					onPress={() => pushNative(RNEmitter)}
+				/>
+				<Button
+					title='回调:使用面粉做蛋糕'
+					onPress={() => patCake('1斤面粉',
+						(cake) => alert(cake),
+						(error) => alert('出错了'+error.message))}
+				/>
+				<Button
+					title='Promise:点名自我介绍'
+					onPress={
+						async () => {
+							try {
+								let introduction = await callNameTointroduction('小明');
+								showInfo(introduction);
+							}catch (e) {
+								alert(e.message);
+							}
+						}
+					}
 				/>
 			</View>
 		);

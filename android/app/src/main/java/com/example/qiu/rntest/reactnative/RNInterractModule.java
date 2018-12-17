@@ -3,10 +3,13 @@ package com.example.qiu.rntest.reactnative;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.uimanager.IllegalViewOperationException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,4 +67,46 @@ public class RNInterractModule extends ReactContextBaseJavaModule {
         Intent intent = new Intent(this.mReactContext,clazz).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.mReactContext.startActivity(intent);
     }
+
+    //回调  比如调用原生的方法处理图片、视频之类的，处理完成之后再把结果会传到RN页面里去
+    //TODO: 请务必注意 callback 并非在对应的原生函数返回后立即被执行——注意跨语言通讯是异步的，这个执行过程会通过消息循环来进行。
+    @ReactMethod
+    public void patCake(String flour, Callback successCallback,Callback errorCallback){
+        try{
+            //模拟异常，走reject
+            if (!flour.getClass().equals(String.class)){
+                throw new Exception("出错了，参数类型不匹配");
+            }
+
+            successCallback.invoke(patCakeUse(flour));
+        }catch (Exception e){
+            errorCallback.invoke(e.getMessage());
+        }
+    }
+
+    private String patCakeUse(String flour){
+        String cake = String.format("使用%s，做好了:\uD83C\uDF82\uD83C\uDF5E\uD83C\uDF5E\uD83C\uDF70\uD83C\uDF70\uD83C\uDF70",flour);
+        return cake;
+    }
+
+    //Promise  比如调用原生的方法处理图片、视频之类的，处理完成之后再把结果会传到RN页面里去
+    @ReactMethod
+    public void callNameTointroduction(String name, Promise promise){
+        try{
+            //模拟异常，走reject
+            if (!name.getClass().equals(String.class)){
+                throw new Exception("出错了，参数类型不匹配");
+            }
+
+            promise.resolve(introduction(name));
+        }catch (Exception e){
+            promise.reject(e);
+        }
+    }
+
+    private String introduction(String name){
+      return String.format("我的名字叫%s，今年18岁，喜欢运动、听歌...",name);
+    }
+
+
 }
