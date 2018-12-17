@@ -30,25 +30,25 @@ export default class ActivityScene extends Component {
 		return (
 			<View style={{flex: 1,backgroundColor:'white'}}>
 				<Button
-					title='Native提示'
+					title='1、调用Native提示'
 					onPress={() => showInfo('我是原生端的提示！')}
 				/>
 				<Button
-					title='RN回到Native'
+					title='2、RN回到Native'
 					onPress={() => popToNative()}
 				/>
 				<Button
-					title='RN Push到Native'
+					title='3、RN Push到Native'
 					onPress={() => pushNative(RNEmitter)}
 				/>
 				<Button
-					title='回调:使用面粉做蛋糕'
+					title='4、回调：使用面粉做蛋糕'
 					onPress={() => patCake('1斤面粉',
 						(cake) => alert(cake),
 						(error) => alert('出错了'+error.message))}
 				/>
 				<Button
-					title='Promise:点名自我介绍'
+					title='5、Promise：点名自我介绍'
 					onPress={
 						async () => {
 							try {

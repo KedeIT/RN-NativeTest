@@ -40,17 +40,19 @@ public class RNInterractModule extends ReactContextBaseJavaModule {
         return constants;
     }
 
-    //提示
+    //==============1、提示==============
     @ReactMethod
     public void showInfo(String info){
         Toast.makeText(getReactApplicationContext(),info,Toast.LENGTH_SHORT).show();
     }
-    //RN回到原生页面
+
+    //==============2、RN回到原生页面==============
     @ReactMethod
     public void popToNative(){
         getCurrentActivity().finish();
     }
-    //RN页面push Native页面
+
+    //==============3、RN页面push Native页面==============
     @ReactMethod
     public void pushNative(String activityName){
 
@@ -68,7 +70,8 @@ public class RNInterractModule extends ReactContextBaseJavaModule {
         this.mReactContext.startActivity(intent);
     }
 
-    //回调  比如调用原生的方法处理图片、视频之类的，处理完成之后再把结果会传到RN页面里去
+    //==============4、回调==============
+    // 比如调用原生的方法处理图片、视频之类的，处理完成之后再把结果会传到RN页面里去
     //TODO: 请务必注意 callback 并非在对应的原生函数返回后立即被执行——注意跨语言通讯是异步的，这个执行过程会通过消息循环来进行。
     @ReactMethod
     public void patCake(String flour, Callback successCallback,Callback errorCallback){
@@ -89,7 +92,8 @@ public class RNInterractModule extends ReactContextBaseJavaModule {
         return cake;
     }
 
-    //Promise  比如调用原生的方法处理图片、视频之类的，处理完成之后再把结果会传到RN页面里去
+    //==============5、Promise==============
+    // 比如调用原生的方法处理图片、视频之类的，处理完成之后再把结果会传到RN页面里去
     @ReactMethod
     public void callNameTointroduction(String name, Promise promise){
         try{

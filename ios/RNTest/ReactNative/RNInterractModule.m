@@ -14,20 +14,20 @@
 ////RCT_EXPORT_MODULE接受字符串作为其Module的名称，如果不设置名称的话默认就使用类名作为Modul的名称
 RCT_EXPORT_MODULE();
 
-//提示
+//==============1、提示==============
 RCT_EXPORT_METHOD(showInfo:(NSString *) info){
     dispatch_sync(dispatch_get_main_queue(), ^{
         [SVProgressHUD showInfoWithStatus:info];
     });
 }
 
-//RN回到原生页面
+//==============2、RN回到原生页面==============
 RCT_EXPORT_METHOD(popToNative){
     dispatch_sync(dispatch_get_main_queue(), ^{
         [Util popViewControllerAnimated:YES];
     });
 }
-//RN页面push Native页面
+//==============3、RN页面push Native页面==============
 RCT_EXPORT_METHOD(pushNative:(NSString *) vcName){
     if([vcName isEqualToString:@"RNEmitter"]){
         vcName = @"RNEmitterViewController";
@@ -54,7 +54,7 @@ RCT_EXPORT_METHOD(pushNative:(NSString *) vcName){
 }
 
 
-//回调函数
+//==============4、回调函数==============
 //TODO（RN文档显示，目前iOS端的回调还处于实验阶段）
 RCT_EXPORT_METHOD(patCake:(NSString *)flour successBlock:(RCTResponseSenderBlock)successBlock errorBlock:(RCTResponseErrorBlock)errorBlock){
     __weak __typeof(self)weakSelf = self;
@@ -76,7 +76,7 @@ RCT_EXPORT_METHOD(patCake:(NSString *)flour successBlock:(RCTResponseSenderBlock
     return cake;
 }
 
-//Promise
+//==============5、Promise==============
 RCT_EXPORT_METHOD(callNameTointroduction:(NSString *)name resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock) reject){
     __weak __typeof(self)weakSelf = self;
     dispatch_sync(dispatch_get_main_queue(), ^{
