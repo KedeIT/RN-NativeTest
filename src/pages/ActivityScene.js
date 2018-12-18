@@ -42,7 +42,7 @@ export default class ActivityScene extends Component {
 		this.subscription = null;
 		this.state = {
 			loginInfo: '当前未登录',
-		}
+		};
 	}
 
 	updateLoginInfoText = (reminder) => {
@@ -77,7 +77,7 @@ export default class ActivityScene extends Component {
 					onPress={() => popToNative()}
 				/>
 				<Button
-					title='3、RN Push到Native'
+					title='3、RN Push到Native 发送通知页面'
 					onPress={() => pushNative(RNEmitter)}
 				/>
 				<Button
@@ -101,6 +101,8 @@ export default class ActivityScene extends Component {
 				/>
 
 				<Text style={{fontSize: 20, color: 'red', textAlign: 'center',marginTop:50}}>{this.state.loginInfo}</Text>
+				{/*展示Native端传递过来的参数*/}
+				<Text style={{fontSize: 20, color: 'green', textAlign: 'center',marginTop:50}}>{this.props.navigation.getParam('msg')}</Text>
 			</View>
 		);
 	}
