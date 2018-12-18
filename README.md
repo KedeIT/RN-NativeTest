@@ -1,5 +1,15 @@
 # RN-NativeTest
 
+
+## 相关类说明
+
+### iOS
+![](image/ios.png)
+
+### Android
+
+![](image/android.png)
+
 >**Tip**
 
 * clone仓库：`git clone https://github.com/KedeIT/RN-NativeTest.git`;
