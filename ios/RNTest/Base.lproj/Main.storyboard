@@ -29,35 +29,54 @@
         <!--RNTest-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gc4-p5-PdV">
-                                <rect key="frame" x="161.5" y="315.5" width="52" height="36"/>
+                                <rect key="frame" x="161.5" y="115.5" width="52" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="To RN"/>
                                 <connections>
                                     <action selector="goToRNViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pm4-Ae-4yk"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入文字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dNJ-LP-rZf">
+                                <rect key="frame" x="50" y="201.5" width="275" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入文本传递到RN页面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zW6-sg-NQV">
+                                <rect key="frame" x="50" y="173.5" width="158.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gc4-p5-PdV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="65D-9d-gkj"/>
-                            <constraint firstItem="gc4-p5-PdV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YIy-W2-Oz5"/>
+                            <constraint firstItem="dNJ-LP-rZf" firstAttribute="top" secondItem="gc4-p5-PdV" secondAttribute="bottom" constant="50" id="I3Q-gS-xRy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dNJ-LP-rZf" secondAttribute="trailing" constant="50" id="LAp-CK-1A3"/>
+                            <constraint firstItem="dNJ-LP-rZf" firstAttribute="top" secondItem="zW6-sg-NQV" secondAttribute="bottom" constant="10" id="VQ7-Mg-C8j"/>
+                            <constraint firstItem="gc4-p5-PdV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-200" id="YIy-W2-Oz5"/>
+                            <constraint firstItem="dNJ-LP-rZf" firstAttribute="leading" secondItem="zW6-sg-NQV" secondAttribute="leading" id="f08-nE-bwg"/>
+                            <constraint firstItem="dNJ-LP-rZf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="l7d-jI-Gre"/>
+                            <constraint firstItem="dNJ-LP-rZf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mQE-Mr-h7K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="RNTest" id="Qav-B7-fEG"/>
                     <connections>
                         <outlet property="rnButton" destination="gc4-p5-PdV" id="3J5-eY-dsa"/>
+                        <outlet property="textField" destination="dNJ-LP-rZf" id="R1h-H5-ZVO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-130" y="168"/>
+            <point key="canvasLocation" x="-130.40000000000001" y="167.76611694152925"/>
         </scene>
     </scenes>
 </document>
