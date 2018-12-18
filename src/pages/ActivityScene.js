@@ -27,6 +27,7 @@ export default class ActivityScene extends Component {
 	render() {
 		return (
 			<View style={{flex: 1,backgroundColor:'green'}}>
+				<Text style={{fontSize: 20, color: 'green', textAlign: 'center',marginTop:50}}>{this.props.navigation.getParam('msg')}</Text>
 			</View>
 		);
 	}

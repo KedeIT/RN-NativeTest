@@ -38,7 +38,7 @@
 
 - (IBAction)goToRNViewController:(id)sender {
     NSURL *jsBundlePath = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsBundlePath moduleName:@"RNTest" initialProperties:nil launchOptions:nil];
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsBundlePath moduleName:@"RNTest" initialProperties:nil launchOptions:@{@"msg":@"我是iOS端传递过来的数据"}];
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view = rootView;
     [self.navigationController pushViewController:vc animated:YES];

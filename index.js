@@ -4,8 +4,19 @@
 
 
 import React, {Component} from 'react';
-import { AppRegistry } from 'react-native';
+import { AppRegistry,View } from 'react-native';
 
 
-import router from './src/pages/router';
-AppRegistry.registerComponent('RNTest',() => router);
+import NavigationScene from './src/pages/NavigationScene';
+
+class RootScene extends Component {
+	render(){
+		return (
+			<View style={{flex:1,background:'white'}}>
+				<NavigationScene msg = {this.props.msg}/>
+			</View>
+		)
+	}
+}
+
+AppRegistry.registerComponent('RNTest',() => RootScene);
