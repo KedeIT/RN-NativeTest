@@ -55,6 +55,7 @@ RCT_EXPORT_METHOD(pushNative:(NSString *) vcName){
 
 
 //==============4、回调函数==============
+// 比如调用原生的方法处理图片、视频之类的，处理完成之后再把结果回传到RN页面里去
 //TODO（RN文档显示，目前iOS端的回调还处于实验阶段）
 RCT_EXPORT_METHOD(patCake:(NSString *)flour successBlock:(RCTResponseSenderBlock)successBlock errorBlock:(RCTResponseErrorBlock)errorBlock){
     __weak __typeof(self)weakSelf = self;
@@ -77,6 +78,7 @@ RCT_EXPORT_METHOD(patCake:(NSString *)flour successBlock:(RCTResponseSenderBlock
 }
 
 //==============5、Promise==============
+// 比如调用原生的方法处理图片、视频之类的，处理完成之后再把结果回传到RN页面里去
 RCT_EXPORT_METHOD(callNameTointroduction:(NSString *)name resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock) reject){
     __weak __typeof(self)weakSelf = self;
     dispatch_sync(dispatch_get_main_queue(), ^{

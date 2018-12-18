@@ -18,6 +18,7 @@
 		415D61B421C3A8F40076DE0B /* libglog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 415D61B321C3A8F40076DE0B /* libglog.a */; };
 		415D61B621C3A8F40076DE0B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 415D61B521C3A8F40076DE0B /* libReact.a */; };
 		415D61B821C3A8F40076DE0B /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 415D61B721C3A8F40076DE0B /* libyoga.a */; };
+		415F57EB21C88E1D00AC948A /* RNNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 415F57E921C88E1D00AC948A /* RNNotificationManager.m */; };
 		41B7742321C4CE4C00F51E92 /* RNBridgeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7742221C4CE4C00F51E92 /* RNBridgeManager.m */; };
 		41B7742621C4D38100F51E92 /* RNInterractModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7742521C4D38100F51E92 /* RNInterractModule.m */; };
 		41B7742B21C4DA5F00F51E92 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B7742A21C4DA5F00F51E92 /* Util.m */; };
@@ -41,6 +42,8 @@
 		415D61B321C3A8F40076DE0B /* libglog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libglog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		415D61B521C3A8F40076DE0B /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		415D61B721C3A8F40076DE0B /* libyoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libyoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		415F57E921C88E1D00AC948A /* RNNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNotificationManager.m; sourceTree = "<group>"; };
+		415F57EA21C88E1D00AC948A /* RNNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNotificationManager.h; sourceTree = "<group>"; };
 		41B7742121C4CE4C00F51E92 /* RNBridgeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNBridgeManager.h; sourceTree = "<group>"; };
 		41B7742221C4CE4C00F51E92 /* RNBridgeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNBridgeManager.m; sourceTree = "<group>"; };
 		41B7742421C4D38100F51E92 /* RNInterractModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNInterractModule.h; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 		41B7742021C4CE1B00F51E92 /* ReactNative */ = {
 			isa = PBXGroup;
 			children = (
+				415F57EA21C88E1D00AC948A /* RNNotificationManager.h */,
+				415F57E921C88E1D00AC948A /* RNNotificationManager.m */,
 				41B7742121C4CE4C00F51E92 /* RNBridgeManager.h */,
 				41B7742221C4CE4C00F51E92 /* RNBridgeManager.m */,
 				41B7742421C4D38100F51E92 /* RNInterractModule.h */,
@@ -266,6 +271,7 @@
 				415D619E21C3A4F60076DE0B /* ViewController.m in Sources */,
 				415D61A921C3A5000076DE0B /* main.m in Sources */,
 				415D619B21C3A4F60076DE0B /* AppDelegate.m in Sources */,
+				415F57EB21C88E1D00AC948A /* RNNotificationManager.m in Sources */,
 				41B7742E21C4DDB300F51E92 /* RNEmitterViewController.m in Sources */,
 				41B7742621C4D38100F51E92 /* RNInterractModule.m in Sources */,
 				41B7742B21C4DA5F00F51E92 /* Util.m in Sources */,

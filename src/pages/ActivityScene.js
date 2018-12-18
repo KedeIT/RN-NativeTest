@@ -8,15 +8,26 @@ import {
 	View,
 	TouchableOpacity,
 	Image,
-	Button
+	Button,
+	Platform,
+	Text,
+	DeviceEventEmitter
 } from 'react-native';
 
-import {showInfo,popToNative,pushNative,patCake,callNameTointroduction,RNEmitter} from "../utils";
+import {
+	showInfo,
+	popToNative,
+	pushNative,
+	patCake,
+	callNameTointroduction,
+	NativeEmitterModuleIOS,
+	RNEmitter
+} from "../utils";
 
 export default class ActivityScene extends Component {
 	static navigationOptions = {
-		title:'ReactNative',
-		headerLeft:(
+		title: 'ReactNative',
+		headerLeft: (
 			<TouchableOpacity onPress={() => popToNative()}>
 				<Image
 					source={require('../../resource/nav_back_gray.png')}
@@ -26,9 +37,37 @@ export default class ActivityScene extends Component {
 		)
 	};
 
+	constructor(props) {
+		super(props);
+		this.subscription = null;
+		this.state = {
+			loginInfo: '当前未登录',
+		}
+	}
+
+	updateLoginInfoText = (reminder) => {
+		this.setState({loginInfo: reminder.message})
+	};
+
+	//添加监听
+	componentWillMount() {
+		if (Platform.OS === 'ios') {
+			console.log('ActivityScene--------->', '开始订阅通知');
+			this.subscription = NativeEmitterModuleIOS.addListener('kRNNotification_Login', this.updateLoginInfoText);
+		}else if(Platform.OS === 'android'){
+			this.subscription = DeviceEventEmitter.addListener('kRNNotification_Login',this.updateLoginInfoText)
+		}
+	}
+	//移除监听
+	componentWillUnmount() {
+			console.log('ActivityScene--------->', '移除通知');
+			this.subscription.remove();
+	}
+
+
 	render() {
 		return (
-			<View style={{flex: 1,backgroundColor:'white'}}>
+			<View style={{flex: 1, backgroundColor: 'white'}}>
 				<Button
 					title='1、调用Native提示'
 					onPress={() => showInfo('我是原生端的提示！')}
@@ -45,7 +84,7 @@ export default class ActivityScene extends Component {
 					title='4、回调：使用面粉做蛋糕'
 					onPress={() => patCake('1斤面粉',
 						(cake) => alert(cake),
-						(error) => alert('出错了'+error.message))}
+						(error) => alert('出错了' + error.message))}
 				/>
 				<Button
 					title='5、Promise：点名自我介绍'
@@ -54,12 +93,14 @@ export default class ActivityScene extends Component {
 							try {
 								let introduction = await callNameTointroduction('小明');
 								showInfo(introduction);
-							}catch (e) {
+							} catch (e) {
 								alert(e.message);
 							}
 						}
 					}
 				/>
+
+				<Text style={{fontSize: 20, color: 'red', textAlign: 'center',marginTop:50}}>{this.state.loginInfo}</Text>
 			</View>
 		);
 	}
