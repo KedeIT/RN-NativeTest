@@ -63,7 +63,7 @@ RCT_EXPORT_METHOD(patCake:(NSString *)flour successBlock:(RCTResponseSenderBlock
         NSString *cake = [weakSelf patCake:flour];
         //模拟成功、失败的block判断
         if([flour isKindOfClass:[NSString class]]){
-            successBlock(@[@[cake]]);
+            successBlock(@[@[cake]]);//此处参数需要放在数组里面
         }else{
             NSError *error = [NSError errorWithDomain:@"com.RNTest" code:-1 userInfo:@{@"message":@"类型不匹配"}];
             errorBlock(error);
