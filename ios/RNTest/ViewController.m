@@ -49,7 +49,7 @@
     }
     
     NSURL *jsBundlePath = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsBundlePath moduleName:@"RNTest" initialProperties:nil launchOptions:params];
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsBundlePath moduleName:@"RNTest" initialProperties:params launchOptions:nil];
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view = rootView;
     [self.navigationController pushViewController:vc animated:YES];
