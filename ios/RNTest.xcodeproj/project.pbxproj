@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410EBEA821D31ABD00CFACA4 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 410EBEA721D31ABD00CFACA4 /* Util.m */; };
 		415D619B21C3A4F60076DE0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 415D619A21C3A4F60076DE0B /* AppDelegate.m */; };
 		415D619E21C3A4F60076DE0B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415D619D21C3A4F60076DE0B /* ViewController.m */; };
 		415D61A121C3A4F60076DE0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415D619F21C3A4F60076DE0B /* Main.storyboard */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		410EBEA621D31ABD00CFACA4 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		410EBEA721D31ABD00CFACA4 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		415D619621C3A4F60076DE0B /* RNTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415D619921C3A4F60076DE0B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		415D619A21C3A4F60076DE0B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		410EBEA521D31AA500CFACA4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				410EBEA621D31ABD00CFACA4 /* Util.h */,
+				410EBEA721D31ABD00CFACA4 /* Util.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		415D618D21C3A4F60076DE0B = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +92,7 @@
 		415D619821C3A4F60076DE0B /* RNTest */ = {
 			isa = PBXGroup;
 			children = (
+				410EBEA521D31AA500CFACA4 /* Utils */,
 				415D619921C3A4F60076DE0B /* AppDelegate.h */,
 				415D619A21C3A4F60076DE0B /* AppDelegate.m */,
 				415D619C21C3A4F60076DE0B /* ViewController.h */,
@@ -229,6 +242,7 @@
 				415D619E21C3A4F60076DE0B /* ViewController.m in Sources */,
 				415D61A921C3A5000076DE0B /* main.m in Sources */,
 				415D619B21C3A4F60076DE0B /* AppDelegate.m in Sources */,
+				410EBEA821D31ABD00CFACA4 /* Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
